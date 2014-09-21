@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Impact on MPG of Various Features by Transmission Type in mtcars Data</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Impact on MPG of Various Features by Transmission Type in mtcars Data">
+  <meta name="author" content="">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Impact on MPG of Various Features by Transmission Type in mtcars Data</h1>
+    <h2>Developing Data Products - Course Project, Sep 2014</h2>
+    <p><br/></p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Executive Summary</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This deck provides an analysis and visualization of fuel consumption (<strong>MPG</strong>) as it is impacted by various features of a car.</p>
+
+<p>Further, the visualization is shown broken down by transmission type (manual or automatic).</p>
+
+<p>The fundamental <em>assumption</em> in this analysis is that the observations are independent of the make/brand of the car.</p>
+
+<p>( Data source: <strong>mtcars</strong> )</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Summary of Analysis</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Intuitively, it is obvious that MPG must be impacted by many, if not most features, of a car. The impact can be quantified like this:</p>
+
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ ., data = mtcars)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+##  -3.45  -1.60  -0.12   1.22   4.63 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  12.3034    18.7179    0.66    0.518  
+## cyl          -0.1114     1.0450   -0.11    0.916  
+## disp          0.0133     0.0179    0.75    0.463  
+## hp           -0.0215     0.0218   -0.99    0.335  
+## drat          0.7871     1.6354    0.48    0.635  
+## wt           -3.7153     1.8944   -1.96    0.063 .
+## qsec          0.8210     0.7308    1.12    0.274  
+## vs            0.3178     2.1045    0.15    0.881  
+## am            2.5202     2.0567    1.23    0.234  
+## gear          0.6554     1.4933    0.44    0.665  
+## carb         -0.1994     0.8288   -0.24    0.812  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.65 on 21 degrees of freedom
+## Multiple R-squared:  0.869,  Adjusted R-squared:  0.807 
+## F-statistic: 13.9 on 10 and 21 DF,  p-value: 3.79e-07
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Summary of Analysis (<em>contd.</em>)</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Looking at MPG by weight:</p>
+
+<p><img src="assets/fig/unnamed-chunk-3.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Conslusions</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li>There is a gain in MPG when switching to manual transmission from automatic.</li>
+<li>Somewhat surprisingly, this analysis has shown that the type of transmission does not significantly impact the MPG versus other factors such as weight, gears, cylinders, etc; except in the case of the number of carburetors.</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Executive Summary'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Summary of Analysis'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Summary of Analysis (<em>contd.</em>)'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Conslusions'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

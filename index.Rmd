@@ -1,0 +1,55 @@
+---
+title       : Impact on MPG of Various Features by Transmission Type in mtcars Data
+subtitle    : Developing Data Products - Course Project, Sep 2014
+author      : 
+job         : 
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Executive Summary
+
+
+This deck provides an analysis and visualization of fuel consumption (**MPG**) as it is impacted by various features of a car.
+
+Further, the visualization is shown broken down by transmission type (manual or automatic).
+
+The fundamental *assumption* in this analysis is that the observations are independent of the make/brand of the car.
+
+( Data source: **mtcars** )
+
+```{r, echo=FALSE}
+data(mtcars)
+```
+
+---
+
+## Summary of Analysis
+
+Intuitively, it is obvious that MPG must be impacted by many, if not most features, of a car. The impact can be quantified like this:
+```{r, echo=FALSE}
+summary( lm(mpg ~ ., data=mtcars ) )  ## interactions by variable
+```
+
+---
+## Summary of Analysis (*contd.*)
+
+Looking at MPG by weight:
+
+```{r, echo=FALSE}
+ggplot(mtcars, aes(x=wt, y=mpg))+geom_point()+geom_smooth(aes(group=as.factor(mtcars$am)),method="lm") +
+  ggtitle("MPG by Weight grouped by Transmission Type")
+```
+
+---
+## Conslusions
+
+* There is a gain in MPG when switching to manual transmission from automatic.
+* Somewhat surprisingly, this analysis has shown that the type of transmission does not significantly impact the MPG versus other factors such as weight, gears, cylinders, etc; except in the case of the number of carburetors.
+
+
+
